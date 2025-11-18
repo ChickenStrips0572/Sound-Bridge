@@ -125,7 +125,7 @@ function soundBrigeClient.PlaySound(Config: Config)
 	local Sound = CreateSound(Config)
 	local trove = require(packages.Trove).new() :: typeof(require(packages.Trove))
 
-	trove["Sound"] = Sound -- I like intellascense don't judge that's mean
+	trove:Add(Sound)
 
 
 	local function Clean()
@@ -151,7 +151,7 @@ function soundBrigeClient.PlaySound(Config: Config)
 		
 		Temp.Parent = workspace
 		
-		trove["Origin"] = Temp
+		trove:Add(Temp)
 		Sound.Parent = Temp
 	else
 		Sound.Parent = Config.Origin
